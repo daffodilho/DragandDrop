@@ -33,6 +33,11 @@
             image.src = `images/${imageNameArray[index]}${this.dataset.puzzleref}.jpg`;
             //debugger;
         });
+		
+		//remove puzzle pieces when images switch
+		dropZones.forEach(zone =>{
+			zone.removeChild(zone.firstChild);
+		});
     }
     
     puzzleSelectors.forEach(thumbnail => { thumbnail.addEventListener("click", switchImage); });
@@ -46,6 +51,7 @@
             //the dataTransfer object has two methods, a setter and getter
             //set data on the drag, and retrieve it on the drop
             e.dataTransfer.setData("text/plain", this.id);
+			
         });
     });
     
@@ -66,10 +72,13 @@
             
             let draggedElement = e.dataTransfer.getData("text/plain");
             console.log('you dragged: ', draggedElement);
-            
-            //add the image to the drop zone
-            e.target.appendChild(document.querySelector(`#${draggedElement}`));
-        });
-    })
-    
+			
+            //if dropzone is empty, add the image to the drop zone
+			if (zone.childElementCount == 0) {
+				e.target.appendChild(document.querySelector(`#${draggedElement}`));
+			} 
+			
+			});
+    	});
+
 })();
