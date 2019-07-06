@@ -13,8 +13,6 @@
     // arrays are indexed and start at 0
     const imageNameArray = ["topLeft", "topRight", "bottomLeft", "bottomRight"];
     
-    //debugger;
-    
     function switchImage() {
         console.log(this);
         // grab the corresponding background image (0, 1, 2, or 3)
@@ -34,8 +32,15 @@
             //debugger;
         });
 		
+<<<<<<< Updated upstream
 		//remove puzzle pieces when images switch
 		dropZones.forEach(zone =>{
+=======
+		//resetPuzzlePieces();
+		
+		//remove puzzle pieces when images switch
+		dropZones.forEach(zone => {
+>>>>>>> Stashed changes
 			zone.removeChild(zone.firstChild);
 		});
     }
@@ -51,7 +56,6 @@
             //the dataTransfer object has two methods, a setter and getter
             //set data on the drag, and retrieve it on the drop
             e.dataTransfer.setData("text/plain", this.id);
-			
         });
     });
     
@@ -78,7 +82,8 @@
 				e.target.appendChild(document.querySelector(`#${draggedElement}`));
 			} 
 			
-			});
-    	});
+			//debugger;
+		});
+    });
 
 })();
