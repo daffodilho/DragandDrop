@@ -31,14 +31,11 @@
             image.src = `images/${imageNameArray[index]}${this.dataset.puzzleref}.jpg`;
             //debugger;
         });
-
-		//resetPuzzlePieces();
 		
 		//remove puzzle pieces when images switch
 		dropZones.forEach(zone => {
 			zone.removeChild(zone.firstChild);
 		});
-
     }
     
     puzzleSelectors.forEach(thumbnail => { thumbnail.addEventListener("click", switchImage); });
