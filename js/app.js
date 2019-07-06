@@ -31,18 +31,14 @@
             image.src = `images/${imageNameArray[index]}${this.dataset.puzzleref}.jpg`;
             //debugger;
         });
-		
-<<<<<<< Updated upstream
-		//remove puzzle pieces when images switch
-		dropZones.forEach(zone =>{
-=======
+
 		//resetPuzzlePieces();
 		
 		//remove puzzle pieces when images switch
 		dropZones.forEach(zone => {
->>>>>>> Stashed changes
 			zone.removeChild(zone.firstChild);
 		});
+
     }
     
     puzzleSelectors.forEach(thumbnail => { thumbnail.addEventListener("click", switchImage); });
